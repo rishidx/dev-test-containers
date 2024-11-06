@@ -2,7 +2,9 @@
 
 ## Overview
 
-This is a Spring Boot project for managing employees, with basic GET and CREATE operations. The primary purpose of this project is to understand how to use Testcontainers prior to Spring Boot version 3.1.0. Testcontainers are implemented in the repository test and employee controller integration test classes to manage the MySQL database during testing.
+This is a Spring Boot project for managing employees, with basic GET and CREATE operations. The primary purpose of this
+project is to understand how to use Testcontainers prior to Spring Boot version 3.1.0. Testcontainers are implemented in
+the repository test and employee controller integration test classes to manage the MySQL database during testing.
 
 ## Features
 
@@ -56,14 +58,17 @@ The following dependencies are used in this project:
 
 ## Testing
 
-The project includes unit tests or controller and service classes, and integration tests for the repository and controller classes. Testcontainers are used to manage the MySQL database during tests.
+The project includes unit tests or controller and service classes, and integration tests for the repository and
+controller classes. Testcontainers are used to manage the MySQL database during tests.
 
 ### Testcontainers Setup
 
-In the `EmployeeRepositoryTest` and `EmployeeControllerIntegrationTest` classes, Testcontainers are used to spin up a MySQL container for testing purposes. This ensures a consistent and isolated test environment.
+In the `EmployeeRepositoryTest` and `EmployeeControllerIntegrationTest` classes, Testcontainers are used to spin up a
+MySQL container for testing purposes. This ensures a consistent and isolated test environment.
 
 ### Running Tests
 
 To run the tests, use the following command:
+
 ```sh
 ./gradlew test

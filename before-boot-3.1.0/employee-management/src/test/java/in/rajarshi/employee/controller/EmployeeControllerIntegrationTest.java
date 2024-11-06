@@ -3,12 +3,10 @@ package in.rajarshi.employee.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import in.rajarshi.employee.model.Employee;
 import in.rajarshi.employee.repository.EmployeeRepository;
-import in.rajarshi.employee.service.EmployeeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -29,6 +27,12 @@ public class EmployeeControllerIntegrationTest {
 
     @Container
     static MySQLContainer<?> mysql = new MySQLContainer<>("mysql:9.1.0");
+    @Autowired
+    private MockMvc mockMvc;
+    @Autowired
+    private ObjectMapper objectMapper;
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {
@@ -36,15 +40,6 @@ public class EmployeeControllerIntegrationTest {
         registry.add("spring.datasource.username", mysql::getUsername);
         registry.add("spring.datasource.password", mysql::getPassword);
     }
-
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @Autowired
-    private EmployeeRepository employeeRepository;
 
     @Test
     public void testGetAllEmployees() throws Exception {
